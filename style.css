@@ -1,0 +1,969 @@
+/* =========================
+   GLOBAL STYLING
+========================= */
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1a0000,
+        #3b0000,
+        #660000
+    );
+
+    min-height: 100vh;
+
+    display: flex;
+
+
+    color: white;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+
+    width: 90%;
+    max-width: 420px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+    0 0 25px rgba(255,0,0,0.3);
+
+    text-align: center;
+
+    margin: 20px 0;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+    0 0 10px red;
+}
+
+
+/* =========================
+   BUTTON COMMON STYLE
+========================= */
+
+button {
+
+    border: none;
+
+    border-radius: 15px;
+
+    padding: 14px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+
+    width: 100%;
+
+    margin-top: 12px;
+}
+
+
+button:hover {
+
+    transform: scale(1.03);
+
+    opacity: 0.95;
+}
+
+
+/* =========================
+   SOS BUTTON
+========================= */
+
+#sosBtn {
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+    radial-gradient(
+        circle,
+        #ff4d4d,
+        #cc0000
+    );
+
+    color: white;
+
+    font-size: 36px;
+    font-weight: bold;
+
+    margin: 25px auto;
+
+    display: block;
+
+    box-shadow:
+    0 0 20px red,
+    0 0 40px rgba(255,0,0,0.7);
+
+    animation:
+    pulse 1.5s infinite;
+}
+
+
+/* SOS Pulse Animation */
+
+@keyframes pulse {
+
+    0% {
+
+        transform: scale(1);
+
+        box-shadow:
+        0 0 15px red;
+    }
+
+    50% {
+
+        transform: scale(1.05);
+
+        box-shadow:
+        0 0 35px red;
+    }
+
+    100% {
+
+        transform: scale(1);
+
+        box-shadow:
+        0 0 15px red;
+    }
+}
+
+
+/* =========================
+   VOICE BUTTON
+========================= */
+
+#voiceBtn {
+
+    background:
+    linear-gradient(
+        135deg,
+        purple,
+        #6a00ff
+    );
+
+    color: white;
+}
+
+
+/* =========================
+   SHAKE BUTTON
+========================= */
+
+#shakeBtn {
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff8800,
+        #ff5500
+    );
+
+    color: white;
+}
+
+
+/* =========================
+   CAMERA BUTTON
+========================= */
+
+#cameraBtn {
+
+    background:
+    linear-gradient(
+        135deg,
+        #0066ff,
+        #00aaff
+    );
+
+    color: white;
+}
+
+
+/* =========================
+   CONTACT BUTTON
+========================= */
+
+#addContactBtn {
+
+    background:
+    linear-gradient(
+        135deg,
+        #00aa55,
+        #00cc77
+    );
+
+    color: white;
+}
+
+
+/* =========================
+   INPUT FIELDS
+========================= */
+
+input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 12px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+    rgba(255,255,255,0.15);
+
+    color: white;
+
+    font-size: 15px;
+
+    box-sizing: border-box;
+}
+
+
+input::placeholder {
+
+    color: rgba(255,255,255,0.7);
+}
+
+
+/* =========================
+   CONTACT LIST
+========================= */
+
+#contactList p {
+
+    background:
+    rgba(255,255,255,0.1);
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+#mapFrame {
+
+    border-radius: 15px;
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   MESSAGE BOX
+========================= */
+
+#messageBox {
+
+    margin-top: 18px;
+
+    font-weight: bold;
+
+    color: #ffcccc;
+}
+
+
+/* =========================
+   PHOTO OUTPUT
+========================= */
+
+#photoOutput {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    border-radius: 15px;
+
+    border:
+    2px solid rgba(255,255,255,0.2);
+}
+
+
+/* =========================
+   STATUS TEXTS
+========================= */
+
+#voiceStatus,
+#locationText {
+
+    margin-top: 15px;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media screen and (max-width: 500px) {
+
+    .container {
+
+        width: 92%;
+
+        padding: 20px;
+    }
+
+    #sosBtn {
+
+        width: 160px;
+        height: 160px;
+
+        font-size: 30px;
+    }
+}
+/* =========================
+   TAGLINE
+========================= */
+
+.tagline {
+
+    margin-top: -10px;
+
+    margin-bottom: 20px;
+
+    color: rgba(255,255,255,0.8);
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+}
+/* =========================
+   CARD DESIGN
+========================= */
+
+.card {
+
+    background:
+    rgba(255,255,255,0.07);
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    margin-top: 20px;
+
+    box-shadow:
+    0 0 15px rgba(0,0,0,0.2);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.card h3 {
+
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    color: #ffd6d6;
+}
+/* =========================
+   ANIMATED BACKGROUND GLOW
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    background:
+    rgba(255,0,0,0.15);
+
+    border-radius: 50%;
+
+    top: -100px;
+    left: -100px;
+
+    filter: blur(80px);
+
+    animation:
+    moveGlow1 8s infinite alternate;
+
+    z-index: -1;
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    background:
+    rgba(255,100,100,0.12);
+
+    border-radius: 50%;
+
+    bottom: -100px;
+    right: -100px;
+
+    filter: blur(80px);
+
+    animation:
+    moveGlow2 10s infinite alternate;
+
+    z-index: -1;
+}
+
+
+/* Glow Animation */
+
+@keyframes moveGlow1 {
+
+    from {
+
+        transform:
+        translate(0,0);
+    }
+
+    to {
+
+        transform:
+        translate(120px,80px);
+    }
+}
+
+
+@keyframes moveGlow2 {
+
+    from {
+
+        transform:
+        translate(0,0);
+    }
+
+    to {
+
+        transform:
+        translate(-100px,-60px);
+    }
+}
+/* =========================
+   SOS FLASH EFFECT
+========================= */
+
+.flash {
+
+    animation:
+    flashScreen 0.3s 4;
+}
+
+
+@keyframes flashScreen {
+
+    0% {
+
+        background:
+        rgba(255,0,0,0.1);
+    }
+
+    50% {
+
+        background:
+        rgba(255,0,0,0.4);
+    }
+
+    100% {
+
+        background:
+        rgba(255,0,0,0.1);
+    }
+}
+/* =========================
+   APP LOAD ANIMATION
+========================= */
+
+.container {
+
+    animation:
+    appLoad 1s ease;
+}
+
+
+@keyframes appLoad {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+        translateY(30px)
+        scale(0.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}
+/* =========================
+   STATUS BAR
+========================= */
+
+.statusBar {
+
+    background:
+    rgba(255,255,255,0.08);
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+    backdrop-filter: blur(10px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+
+#systemStatus {
+
+    color: #90ff90;
+
+    font-weight: bold;
+}
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottomNav {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    padding: 12px 0;
+
+    background:
+    rgba(0,0,0,0.4);
+
+    backdrop-filter: blur(12px);
+
+    border-top:
+    1px solid rgba(255,255,255,0.1);
+
+    z-index: 1000;
+}
+
+
+.navItem {
+
+    color: rgba(255,255,255,0.7);
+
+    font-size: 14px;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+}
+
+
+.navItem:hover {
+
+    transform: scale(1.08);
+
+    color: white;
+}
+
+
+.activeNav {
+
+    color: #ff4d4d;
+
+    text-shadow:
+    0 0 10px red;
+}
+
+
+/* Space for bottom nav */
+
+.container {
+
+    padding-bottom: 100px;
+}
+/* =========================
+   LIVE CLOCK
+========================= */
+
+.liveClock {
+
+    margin-bottom: 20px;
+
+    padding: 10px;
+
+    border-radius: 12px;
+
+    background:
+    rgba(255,255,255,0.06);
+
+    font-size: 15px;
+
+    color: #ffd6d6;
+
+    backdrop-filter: blur(10px);
+}
+/* =========================
+   SOS BUTTON INTERACTION
+========================= */
+
+#sosBtn:hover {
+
+    transform:
+    scale(1.08);
+
+    box-shadow:
+    0 0 30px red,
+    0 0 60px rgba(255,0,0,0.9);
+}
+
+
+#sosBtn:active {
+
+    transform:
+    scale(0.95);
+
+    box-shadow:
+    0 0 80px red;
+}
+/* =========================
+   SOS POPUP
+========================= */
+
+#sosPopup {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+    rgba(0,0,0,0.7);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 2000;
+}
+
+
+.popupContent {
+
+    width: 80%;
+    max-width: 320px;
+
+    background:
+    rgba(30,0,0,0.95);
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+    0 0 25px red;
+
+    animation:
+    popupShow 0.4s ease;
+}
+
+
+.popupContent h2 {
+
+    color: #ff4d4d;
+}
+
+
+.popupContent button {
+
+    background:
+    linear-gradient(
+        135deg,
+        red,
+        darkred
+    );
+
+    color: white;
+
+    margin-top: 15px;
+}
+
+
+@keyframes popupShow {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+        scale(0.7);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+        scale(1);
+    }
+}
+/* ============================= */
+/* 🌦 WEATHER BOX */
+/* ============================= */
+
+#weatherBox {
+
+background: rgba(255,255,255,0.15);
+
+padding: 8px 12px;
+
+border-radius: 12px;
+
+margin-top: 10px;
+
+font-size: 14px;
+
+backdrop-filter: blur(5px);
+
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+}
+/* ============================= */
+/* 📱 MOBILE VERTICAL LAYOUT FIX */
+/* ============================= */
+
+.container {
+
+    width: 100%;
+    max-width: 500px;
+
+    min-height: 100vh;
+
+    padding: 25px;
+
+    border-radius: 0;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+    0 0 25px rgba(255,0,0,0.3);
+
+    text-align: center;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+/* Make all cards vertical */
+
+.card {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* Stack buttons vertically */
+
+#voiceBtn,
+#shakeBtn,
+#cameraBtn,
+#addContactBtn {
+
+    width: 100%;
+
+    margin-top: 12px;
+}
+
+
+/* SOS button center */
+
+#sosBtn {
+
+    margin: 20px auto;
+
+    display: block;
+}
+
+
+/* Inputs full width */
+
+input {
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* Fix contact box */
+
+#contactList {
+
+    width: 100%;
+
+    margin-top: 15px;
+}
+
+
+/* Remove weird side layout */
+
+body {
+
+    overflow-x: hidden;
+}
+/* =========================
+   🚨 FLASH OVERLAY
+========================= */
+
+#flashOverlay {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 5000;
+}
+
+
+/* Flash animation */
+
+.flashActive {
+
+    animation:
+    flashEffect 0.4s infinite;
+}
+
+
+@keyframes flashEffect {
+
+    0% {
+
+        opacity: 0;
+    }
+
+    50% {
+
+        opacity: 0.9;
+    }
+
+    100% {
+
+        opacity: 0;
+    }
+}
+#smsBtn {
+
+    background:
+    linear-gradient(
+        135deg,
+        #00b894,
+        #00d2a0
+    );
+
+    color: white;
+}

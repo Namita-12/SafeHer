@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SafeHer - Women Safety App</title>
+
+    <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#cc0000">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- 🚨 MAIN CONTAINER -->
+    <!-- ============================= -->
+
+    <div class="container">
+
+        <!-- ============================= -->
+        <!-- 🚨 APP TITLE -->
+        <!-- ============================= -->
+
+        <h1>🚨 SafeHer</h1>
+
+        <p class="tagline">
+            Your Emergency Safety Companion
+        </p>
+
+
+        <!-- ============================= -->
+        <!-- 📊 STATUS BAR -->
+        <!-- ============================= -->
+
+        <div class="statusBar">
+
+            <div class="liveClock">
+                🕒 <span id="clockText"></span>
+            </div>
+
+            <div id="weatherBox">
+                🌦 Weather loading...
+            </div>
+
+            <br>
+
+            <span id="systemStatus">
+                🟢 System Ready
+            </span>
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- 🚨 SOS BUTTON -->
+        <!-- ============================= -->
+
+        <button id="sosBtn">
+            🚨 SOS
+        </button>
+
+
+        <!-- ============================= -->
+        <!-- 🎤 VOICE SOS -->
+        <!-- ============================= -->
+
+        <button id="voiceBtn">
+            🎤 Voice SOS
+        </button>
+
+        <p id="voiceStatus">
+            🎤 Listening Status: OFF
+        </p>
+
+
+        <!-- ============================= -->
+        <!-- 📳 SHAKE DETECTION -->
+        <!-- ============================= -->
+
+        <button id="shakeBtn">
+            📳 Shake detection: OFF
+        </button>
+
+
+        <!-- ============================= -->
+        <!-- 📸 CAMERA SECTION -->
+        <!-- ============================= -->
+
+        <div class="card">
+
+            <h3>📸 Emergency Camera</h3>
+
+            <button id="cameraBtn">
+                📷 Open Camera
+            </button>
+
+            <input
+                type="file"
+                id="cameraInput"
+                accept="image/*"
+                capture="environment"
+                style="display:none;">
+
+            <br><br>
+
+            <img
+                id="photoOutput"
+                width="300"
+                style="display:none; border-radius:10px;">
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- 📞 EMERGENCY CONTACTS -->
+        <!-- ============================= -->
+
+        <div class="card">
+
+            <h3>📞 Emergency Contacts</h3>
+
+            <input
+                type="text"
+                id="contactName"
+                placeholder="Enter Contact Name">
+
+            <input
+                type="text"
+                id="contactPhone"
+                placeholder="Enter Phone Number">
+
+            <button id="addContactBtn">
+                Add Contact
+            </button>
+
+            <div id="contactList"></div>
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- 📍 LOCATION + MAP -->
+        <!-- ============================= -->
+
+        <div class="card">
+
+            <h3>📍 Live Location</h3>
+
+            <p id="locationText"></p>
+
+            <div id="mapContainer">
+
+                <iframe
+                    id="mapFrame"
+                    width="100%"
+                    height="250"
+                    style="border:0; display:none; border-radius:15px;"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+            <div id="messageBox"></div>
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- 📩 EMERGENCY SMS -->
+        <!-- ============================= -->
+
+        <div class="card">
+
+            <h3>📩 Emergency SMS</h3>
+
+            <button id="smsBtn">
+                📩 Send Emergency SMS
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- 🔥 FIREBASE SETUP -->
+    <!-- ============================= -->
+
+    <script type="module">
+
+        import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+
+        import {
+            getFirestore,
+            collection,
+            addDoc
+        }
+        from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyDAJzHuvCd20pgoc_0A5ojxz73zHkvS4s8",
+
+            authDomain:
+                "safeher-ec330.firebaseapp.com",
+
+            projectId:
+                "safeher-ec330",
+
+            storageBucket:
+                "safeher-ec330.firebasestorage.app",
+
+            messagingSenderId:
+                "552435985991",
+
+            appId:
+                "1:552435985991:web:e181946b80205e811c8b62",
+
+            measurementId:
+                "G-NKFPVJ3QGK"
+
+        };
+
+
+        // Initialize Firebase
+
+        const app =
+            initializeApp(firebaseConfig);
+
+        const db =
+            getFirestore(app);
+
+
+        // Make Firebase global
+
+        window.db = db;
+
+        window.collection = collection;
+
+        window.addDoc = addDoc;
+
+
+        console.log(
+            "🔥 Firebase Connected Successfully"
+        );
+
+    </script>
+
+
+    <!-- ============================= -->
+    <!-- 📱 BOTTOM NAVIGATION -->
+    <!-- ============================= -->
+
+    <div class="bottomNav">
+
+        <div class="navItem activeNav">
+            🏠<br>
+            Home
+        </div>
+
+        <div class="navItem">
+            🚨<br>
+            SOS
+        </div>
+
+        <div class="navItem">
+            ⚙️<br>
+            Settings
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- 🚨 SOS POPUP -->
+    <!-- ============================= -->
+
+    <div id="sosPopup">
+
+        <div class="popupContent">
+
+            <h2>🚨 Emergency Activated</h2>
+
+            <p>
+                Your location and emergency alert
+                have been triggered.
+            </p>
+
+            <button id="closePopup">
+                OK
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- ⚡ FLASH OVERLAY -->
+    <!-- ============================= -->
+
+    <div id="flashOverlay"></div>
+
+
+    <!-- ============================= -->
+    <!-- 🚀 MAIN JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
