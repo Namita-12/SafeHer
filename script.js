@@ -153,9 +153,11 @@ err
 
 // GET LOCATION
 
+// LIVE LOCATION TRACKING
+
 if (navigator.geolocation) {
 
-navigator.geolocation.getCurrentPosition(
+navigator.geolocation.watchPosition(
 
 async function(position) {
 
@@ -164,16 +166,19 @@ position.coords.latitude;
 
 let lon =
 position.coords.longitude;
-systemStatus.innerText =
-"📍 Location Shared Successfully";
+
 
 // SHOW LOCATION
 
 locationText.innerHTML =
 
-"📍 Location:<br>" +
-
-lat + ", " + lon;
+"📍 Live Location:<br>"
++
+lat
++
+", "
++
+lon;
 
 
 // SHOW MAP
@@ -184,9 +189,18 @@ mapFrame.style.display =
 mapFrame.src =
 
 "https://maps.google.com/maps?q="
-+ lat + ","
-+ lon +
++
+lat
++
+","
++
+lon
++
 "&z=15&output=embed";
+
+
+systemStatus.innerText =
+"📡 Live Tracking Active";
 
 
 // SAVE TO FIREBASE
@@ -211,7 +225,7 @@ time: new Date().toString()
 );
 
 console.log(
-"Saved to Firebase"
+"Live location saved"
 );
 
 }
@@ -234,9 +248,12 @@ function(error) {
 systemStatus.innerText =
 "❌ Location Access Failed";
 
-locationText.innerText =
-"Location error";
+},
 
+{
+enableHighAccuracy: true,
+maximumAge: 0,
+timeout: 5000
 }
 
 );
