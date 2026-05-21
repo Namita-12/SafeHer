@@ -967,3 +967,16 @@ body {
 
     color: white;
 }
+#callBtn {
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff1744,
+        #ff5252
+    );
+
+    color: white;
+
+    font-weight: bold;
+}

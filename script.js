@@ -40,6 +40,8 @@ let flashOverlay =
 document.getElementById("flashOverlay");
 let smsBtn =
 document.getElementById("smsBtn");
+let callBtn =
+document.getElementById("callBtn");
 // =============================
 // 📷 CAMERA
 // =============================
@@ -689,4 +691,20 @@ window.location.href =
 );
 
 }
+);
+// =============================
+// 📞 EMERGENCY CALL
+// =============================
+
+callBtn.addEventListener(
+
+"click",
+
+function() {
+
+window.location.href =
+"tel:112";
+
+}
+
 );
